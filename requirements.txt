@@ -1,0 +1,3 @@
+fastapi[all]
+aioredis
+python-json-logger
