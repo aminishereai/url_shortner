@@ -48,5 +48,3 @@ urllib3==2.6.3
 uvicorn==0.46.0
 watchfiles==1.1.1
 websockets==16.0
-(url_shortener) PS C:\Users\dell\Desktop\url_shortener> uv remove aioredis
-Resolved 51 packa

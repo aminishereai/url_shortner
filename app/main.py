@@ -1,10 +1,12 @@
 from http import HTTPStatus
 
 from fastapi import FastAPI, HTTPException, Request , status
+from starlette.exceptions import HTTPException as StarletteHTTPExceptions
 from fastapi.responses import JSONResponse, RedirectResponse
 
 from app.data.cache import lifespan
 from app.routers import access
+
 
 from uuid import uuid4
 
@@ -13,7 +15,7 @@ from app.schemas import ProblemDetail
 app = FastAPI(lifespan=lifespan)
 
 
-@app.exception_handler(HTTPException)
+@app.exception_handler(StarletteHTTPExceptions)
 async def http_exception_handler(request : Request , exc : HTTPException):
     status_code = exc.status_code
     problem = ProblemDetail(
